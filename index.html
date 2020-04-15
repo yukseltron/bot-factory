@@ -2,8 +2,54 @@
 <html>
     <head>
     <link rel="stylesheet" href="style.css" type="text/css">
-
     </head>
+    <title>Bot Factory</title>
     <body>
-        <h1>Hello, World!</h1>
+        <h1>Bot Factory</h1>
+        <div class="group" id="app">
+            <form>
+                <div>
+                    <label for="myfile">Upload existing config file</label>
+                    <input type="file" id="myfile" name="myfile"><br><br>
+                    <input type="submit">
+                </div>
+                <div>
+                    <input type="reset">
+                </div>
+            </form>
+            <div id="json-maker">
+              <form v-on:submit.prevent="addNew">
+                <label for="keyword">Keyword(s)</label>
+                <textarea
+                    v-model="newKeyword"
+                    spellcheck="true"
+                    id="keyword"
+                    rows="5"
+                    columns="10"
+                    placeholder="Where is the bucket?">
+                </textarea>
+                <label for="response">Response</label>
+                <textarea
+                    v-model="newResponse"
+                    spellcheck="true"
+                    id="response"
+                    rows="5"
+                    columns="10"
+                    placeholder="Over there">
+                </textarea>
+                <button>Add</button>
+              </form>
+              <ul>
+                <li
+                  v-for="(pair, index) in pairs"
+                >{{ pair.keyword }} : {{ pair.response }}
+                <button v-on:click="removePair(index)">Remove</button></br>
+                </li>
+              </ul>
+              <button v-on:click="exportFile()">saveFile</button>
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
     </body>
+</html>
