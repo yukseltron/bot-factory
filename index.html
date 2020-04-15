@@ -19,6 +19,8 @@
             </form>
             <div id="json-maker">
               <form v-on:submit.prevent="addNew">
+                <label for="fileName">File name</label>
+                <input type="text" id="fileName" v-model="name">
                 <label for="keyword">Keyword(s)</label>
                 <textarea
                     v-model="newKeyword"
