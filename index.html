@@ -12,12 +12,11 @@
                     <label for="myfile">Upload existing config file</label>
                     <input type="file" id="myfile" ref="document" name="myfile"><br><br>
                     <button>Submit</button>
-                    {{ text }}
-                </div>
-                <div>
-                    <button v-on:click="resetFields()">Reset</button>
                 </div>
             </form>
+            <div>
+                <button v-on:click="resetFields()">Reset</button>
+            </div>
             <div id="json-maker">
               <form v-on:submit.prevent="addNew">
                 <label for="fileName">File name</label>
