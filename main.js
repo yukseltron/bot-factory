@@ -30,33 +30,39 @@ new Vue({
 		  console.log('0');
     },
     addNew: function () {
-	  if (this.newKeyword.includes(',')) {
-		  listOfKeys = this.newKeyword.split(",");
-		  for (i of listOfKeys) {
-			  this.pairs.push({
-				id: this.nextId++,
-				keyword: i,
-				response: this.newResponse
-				});
-		  }
-	  } else {
-	      this.pairs.push({
-	        id: this.nextId++,
-	        keyword: this.newKeyword,
-			response: this.newResponse
-			});
-	  }
-	  this.newKeyword = '';
-	  this.newResponse = '';
+		if (this.newKeyword != "" && this.newResponse != "") {
+			if (this.newKeyword.includes(',')) {
+				listOfKeys = this.newKeyword.split(",");
+				for (i of listOfKeys) {
+					this.pairs.push({
+					  id: this.nextId++,
+					  keyword: i,
+					  response: this.newResponse
+					  });
+				}
+			} else {
+				this.pairs.push({
+				  id: this.nextId++,
+				  keyword: this.newKeyword,
+				  response: this.newResponse
+				  });
+			}
+			this.newKeyword = '';
+			this.newResponse = '';
+		}
   },
 	removePair: function (index) {
-		this.pairs.splice(index, 1)
+		this.pairs.splice(index, 1);
   },
 	exportFile: function () {
 		this.name = this.name + '_config';
-		const data = JSON.stringify(this.pairs)
-	    const blob = new Blob([data], {type: 'text/plain'})
-	    const e = document.createEvent('MouseEvents'),
+		jsonPairs = {}
+		for (i of this.pairs) {
+			jsonPairs[i.keyword] = i.response;
+		}
+		const data = JSON.stringify(jsonPairs);
+	    const blob = new Blob([data], {type: 'text/plain'});
+	    const e = document.createEvent('MouseEvents');
 	    a = document.createElement('a');
 	    a.download = this.name + ".json";
 	    a.href = window.URL.createObjectURL(blob);
