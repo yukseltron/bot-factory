@@ -5,9 +5,30 @@ new Vue({
 	newResponse: '',
     pairs: [],
     nextId: 0,
-	name: ''
+	name: '',
+	text: 'sample'
   },
   methods: {
+	uploadFile: function () {
+		console.log('selected a file');
+        console.log(this.$refs.document.files[0]);
+
+        let file = this.$refs.document.files[0];
+        //if(!file || file.type !== 'text/plain') return;
+
+        // Credit: https://stackoverflow.com/a/754398/52160
+        let reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload =  evt => {
+          this.text = evt.target.result;
+        }
+        reader.onerror = evt => {
+          console.error(evt);
+        }
+    },
+	resetFields: function () {
+		  console.log('0');
+    },
     addNew: function () {
 	  if (this.newKeyword.includes(',')) {
 		  listOfKeys = this.newKeyword.split(",");
