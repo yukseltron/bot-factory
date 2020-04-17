@@ -31,7 +31,7 @@ new Vue({
 					id: this.nextId++,
 					keyword: j[0],
 					response: j[1]
-					});  
+					});
 			  }
 		  }
 		  stringText = '';
