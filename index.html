@@ -2,11 +2,13 @@
 <html>
     <head>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="https://lh3.googleusercontent.com/proxy/ihm_tSBTAjnXT5GLpyRjzKgDnjHFUMZWpdWCuhVh6DlwW66qUejd1eO4btS_TKOYIyWwAOlIy3Zpad_5qI-D5B0"/>
     </head>
     <title>Bot Factory</title>
     <body>
-        <div class="group" id="app">
+        <div class="group box shadow" id="app">
             <h1>Bot Factory</h1>
+            <a href="https://github.com/yukseltron/bot-factory">Github</a>
             <form v-on:submit.prevent="uploadFile">
                 <div class="box">
                     <label class="chooseFile" for="myfile">Upload existing config file(s)</label><br />
@@ -15,7 +17,7 @@
                             <input type="file" id="myfile" ref="document" name="myfile">
                         </li>
                         <li>
-                            <button>Upload</button>
+                            <button class="upload-btn">Upload</button>
                         </li>
                     </ol>
                 </div>

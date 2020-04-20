@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-.group {
-    padding: 10px;
+a {
+    color: blue;
+    text-decoration: none;
+    margin-left: 1px;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 html {
@@ -19,6 +25,7 @@ button:focus {
 
 #chooseFile {
     padding-bottom: 15px;
+    cursor: pointer;
 }
 
 .btn {
@@ -82,9 +89,14 @@ button:focus {
     margin-top: 35px;
 }
 
+.box1 {
+    font-size: 80%;
+}
+
 .box2 {
     background-color: #EFEFEF;
-    margin-right: 15px;
+    margin-right: 10px;
+    font-size: 80%;
 }
 
 .name-input {
@@ -107,6 +119,20 @@ input[type=text] {
   font-size: 100%;
   outline:0;
 }
+
+input[type=file] {
+  font-size: 100%;
+}
+
+input[type=file]:hover {
+    cursor: pointer;
+}
+
+.upload-btn {
+    font-size: 85%;
+    cursor: pointer;
+}
+
 
 textarea {
   width: 225px;
@@ -140,4 +166,23 @@ textarea {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(-10px);
   opacity: 0;
+}
+
+.group {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    background-color: white;
+    margin-bottom: 30%;
+    padding-bottom: 25px;
+}
+
+.shadow {
+    box-shadow:
+0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+0 12.5px 10px rgba(0, 0, 0, 0.06),
+0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+0 100px 80px rgba(0, 0, 0, 0.12)
 }
