@@ -4,7 +4,7 @@ This web app is used for creating/managing the key-value pairings for a json.
 
 For this specific case, we are using it in generating keyword - responses for auto-generating a bot (NPC) to be used in VR simulations.
 
-[]See this repo for more on the bot](https://github.com/AnthonyMella66/Capstone2019)
+[See this repo for more on the bot](https://github.com/AnthonyMella66/Capstone2019)
 
 ## How to use
 
