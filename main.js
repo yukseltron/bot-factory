@@ -42,9 +42,11 @@ new Vue({
         }
     },
 	resetFields: function () {
-		  this.pairs = [];
-		  this.name = '';
-		  this.text = {};
+        if (confirm("Are you sure you want to Reset All Fields?")) {
+            this.pairs = [];
+            this.name = '';
+            this.text = {};
+        }
     },
     addNew: function () {
 		if (this.newKeyword != "" && this.newResponse != "" && this.alreadyStored(this.newKeyword) == true) {
@@ -84,7 +86,7 @@ new Vue({
 		if (this.name == '') {
 			this.name = 'config.json';
 		} else {
-			this.name = this.name;
+			this.name = this.name + '.json';
 		}
 		jsonPairs = {}
 		for (i of this.pairs) {

@@ -1,3 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 .group {
     padding: 10px;
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    color: #606060;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+button:focus {
+    outline:0;
+}
+
+#chooseFile {
+    padding-bottom: 15px;
+}
+
+.btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    font-size: 100%;
+}
+
+.btn-confirm {
+    border: 1px solid #33CE7C;
+    background-color: #33CE7C;
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 5px;
+
+}
+
+.btn-confirm:hover {
+    background-color: white;
+    color: #33CE7C;
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.15rem #33CE7C);
+}
+
+.reset {
+    background-color: red;
+    color: white;
+    margin-top: 35px;
+    border: 1px solid red;
+}
+
+.reset:hover {
+    background-color: white;
+    color: red;
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.15rem crimson);
+}
+
+.export {
+    background-color: #31C1F2;
+    color: white;
+    margin-top: 35px;
+    border: 1px solid #31C1F2;
+}
+
+.export:hover {
+    background-color: white;
+    color: #31C1F2;
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.15rem #31C1F2);
+}
+
+.box {
+    border: 1px solid #B0B0B0;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 15px;
+    margin-top: 35px;
+}
+
+.box2 {
+    background-color: #EFEFEF;
+    margin-right: 15px;
+}
+
+.name-input {
+    display: inline;
+}
+
+#json-maker {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #B0B0B0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 100%;
+  outline:0;
+}
+
+textarea {
+  width: 225px;
+  border: 1px solid #B0B0B0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 100%;
+  outline:0;
+  margin-top: 5px;
+  padding: 12px 20px;
+}
+
+.textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.addWords {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-10px);
+  opacity: 0;
 }
