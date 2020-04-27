@@ -1,6 +1,6 @@
 # Bot Factory
 
-This web app is used for creating/managing the key-value pairings for a json. 
+This web app is used for creating/managing the key-value pairings for a json. [See the site](https://bot-factory.netlify.app/)
 
 For this specific case, we are using it in generating keyword - responses for auto-generating a bot (NPC) to be used in VR simulations.
 
