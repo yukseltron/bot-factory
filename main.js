@@ -1,32 +1,36 @@
+//author Hamid Yuksel
+
 new Vue({
   el: '#app',
   data: {
-    newKeyword: '',
-	newResponse: '',
-    pairs: [],
-    nextId: 0,
-	name: '',
-	text: {}
+    newKeyword: '', //Keyword to be added
+	newResponse: '', //Response to be added
+    pairs: [], //list of keyword-response pairings
+    nextId: 0, //keeps track of id
+	name: '', //name of file
+	text: {} //stores parsed JSON from uploaded file
   },
   methods: {
-	uploadFile: function () {
+	uploadFile: function () { //function for filling pairings list with pairings from uploaded file
 		//console.log('selected a file');
         //console.log(this.$refs.document.files[0]);
 
         let file = this.$refs.document.files[0];
-        if(!file || file.type !== 'application/json') {
+        if(!file || file.type !== 'application/json') { //ensures only .json file types can be uploaded
 			alert("No file or incorrect file type uploaded! Should end in '.json'");
 			return;
 		}
         // Credit: https://stackoverflow.com/a/754398/52160
-        let reader = new FileReader();
+        let reader = new FileReader(); //file reader functionalities
 		this.name = file.name;
-        reader.readAsText(file, "UTF-8");
+
+        reader.readAsText(file, "UTF-8"); //parses through file and appends to pairs.
         reader.onload =  evt => {
           stringText = evt.target.result;
 		  this.text = JSON.parse(stringText);
+
 		  for (j of Object.entries(this.text)) {
-  			  if (this.alreadyStored(j[0]) == true) {
+  			  if (this.alreadyStored(j[0]) == true) { // check if keyword already used
 				  this.pairs.push({
 					id: this.nextId++,
 					keyword: j[0],
@@ -34,43 +38,44 @@ new Vue({
 					});
 			  }
 		  }
-		  stringText = '';
+		  stringText = ''; //reset params
 		  this.text = {};
         }
         reader.onerror = evt => {
           console.error(evt);
         }
     },
-	resetFields: function () {
+	resetFields: function () { //Resets all fields
         if (confirm("Are you sure you want to Reset All Fields?")) {
             this.pairs = [];
             this.name = '';
             this.text = {};
         }
     },
-    addNew: function () {
-		if (this.newKeyword != "" && this.newResponse != "" && this.alreadyStored(this.newKeyword) == true) {
-			if (this.newKeyword.includes(',')) {
+    addNew: function () { //for when user manually adds a pairing to the list
+		if (this.newKeyword != "" && this.newResponse != "" && this.alreadyStored(this.newKeyword) == true) { //check if not empty and keyword hasn't already been stored
+			if (this.newKeyword.includes(',')) { //allows for multiple keywords to be added, separated by a comma ','
 				listOfKeys = this.newKeyword.split(",");
-				for (i of listOfKeys) {
+
+				for (i of listOfKeys) { //add comma separated items into the pairs list
 					this.pairs.push({
 					  id: this.nextId++,
 					  keyword: i,
 					  response: this.newResponse
 					  });
 				}
-			} else {
+			} else { //otherwise commas are not used, add a single pair to pairs list
 				this.pairs.push({
 				  id: this.nextId++,
 				  keyword: this.newKeyword,
 				  response: this.newResponse
 				  });
 			}
-			this.newKeyword = '';
+			this.newKeyword = ''; //reset fields
 			this.newResponse = '';
 		}
   },
-    alreadyStored: function (keyword) {
+    alreadyStored: function (keyword) { //internal function to check if keyword has been stored already.
 	  for (p of this.pairs) {
 		  if (keyword == p.keyword) {
 			  alert('Keyword : response already stored! Keyword: ' + keyword);
@@ -79,21 +84,26 @@ new Vue({
 	  }
 	  return true;
   },
-	removePair: function (index) {
+	removePair: function (index) { //remove pair from pairs-list. as specified by the user
 		this.pairs.splice(index, 1);
   },
-	exportFile: function () {
-		if (this.name == '') {
+	exportFile: function () { //export the pairs into a json file
+		if (this.name == '') { //applies default name if none is given
 			this.name = 'config.json';
-		} else {
+		} else if (this.name.endsWith('.json')) { //do not change name if ends in json already
+            this.name = this.name;
+        } else { //add json extension to end of file otherwise
 			this.name = this.name + '.json';
 		}
-		jsonPairs = {}
-		for (i of this.pairs) {
+
+		jsonPairs = {} //json to store pairs in to export
+
+		for (i of this.pairs) { //stores pairs into json object
 			jsonPairs[i.keyword] = i.response;
 		}
-		const data = JSON.stringify(jsonPairs);
-	    const blob = new Blob([data], {type: 'text/plain'});
+
+		const data = JSON.stringify(jsonPairs); //creates and downloads the json file for user
+	    const blob = new Blob([data], {type: 'text/plain'}); //uses blob to make exportable file
 	    const e = document.createEvent('MouseEvents');
 	    a = document.createElement('a');
 	    a.download = this.name;
