@@ -1,23 +1,23 @@
-# Bot Factory
+# Bot Factory🤖
 
-## Background
+### Background
 This is my portion for our Capstone project. [Here's a video of the project](https://www.youtube.com/watch?v=_-yhq2RHWto)
 
 
-## What this is
+### What this is
 This web app is used for creating/managing the key-value pairings for a json. [See the site](https://bot-factory.netlify.app/)
 
 For this specific case, we are using it in generating keyword - responses for auto-generating a bot (NPC) to be used in VR simulations.
 
 [See this repo for more on the bot](https://github.com/AnthonyMella66/Capstone2019)
 
-## How to use
+### How to use
 
 You can choose to upload an existing configuration file(s).
 
 These files must be uploaded one at a time.
 
-### Note: you must upload files that end in .json.
+#### Note: you must upload files that end in .json.
 
 
 
