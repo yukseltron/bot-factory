@@ -1,4 +1,11 @@
-# Bot Factory🤖
+# Virtual Assistance Bot🤖
+
+
+
+[Checkout the project page here](https://www.yooksel.com/#/virtual-assistance-bot)
+
+
+
 
 ### Background
 This is my portion for our Capstone project. [Here's a video of the project](https://www.youtube.com/watch?v=_-yhq2RHWto)
@@ -27,5 +34,8 @@ When adding your own keyword-responses please note the following:
 
 2. For the same response, you can add multiple different keywords separated by a comma (,)
 
-### Made with [vue.js](https://vuejs.org/)
+
+
+
+#### Made with [vue.js](https://vuejs.org/)
 
