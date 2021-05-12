@@ -1,8 +1,7 @@
 # Virtual Assistance Bot🤖
 
 
-
-[Checkout the project page here](https://www.yooksel.com/#/virtual-assistance-bot)
+[See the site](https://bot-factory.netlify.app/)
 
 
 
@@ -12,7 +11,7 @@ This is my portion for our Capstone project. [Here's a video of the project](htt
 
 
 ### What this is
-This web app is used for creating/managing the key-value pairings for a json. [See the site](https://bot-factory.netlify.app/)
+This web app is used for creating/managing the key-value pairings for a json. [Checkout the project page here](https://www.yooksel.com/#/virtual-assistance-bot)
 
 For this specific case, we are using it in generating keyword - responses for auto-generating a bot (NPC) to be used in VR simulations.
 
