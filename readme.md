@@ -15,7 +15,7 @@ This is my portion for our Capstone project. [Here's a video of the project](htt
 
 
 ## What this is
-This web app is used for creating/managing the key-value pairings for a json. [Checkout the project page here](https://www.yooksel.com/#/virtual-assistance-bot)
+This web app is the bot factory used for creating/managing the key-value pairings in json.
 
 For this specific case, we are using it in generating keyword - responses for auto-generating a bot (NPC) to be used in VR simulations.
 
@@ -40,6 +40,7 @@ When adding your own keyword-responses please note the following:
 
 <br/>
 <br/>
+[See the project page here](https://www.yooksel.com/#/virtual-assistance-bot)
 
 #### Made with [vue.js](https://vuejs.org/)
 
